@@ -36,6 +36,26 @@ const router = createRouter({
           path: 'form-layouts',
           component: () => import('../pages/form-layouts.vue'),
         },
+        {
+          path: 'timeword-t0',
+          component: () => import('../pages/timeword-t0.vue'),
+        },
+        {
+          path: 'timeword-t1',
+          component: () => import('../pages/timeword-t1.vue'),
+        },
+        {
+          path: 'timeword-t2',
+          component: () => import('../pages/timeword-t2.vue'),
+        },
+        {
+          path: 'timeword-t3',
+          component: () => import('../pages/timeword-t3.vue'),
+        },
+        {
+          path: 'timeword-crossDays',
+          component: () => import('../pages/timeword-crossDays.vue'),
+        },
       ],
     },
     {

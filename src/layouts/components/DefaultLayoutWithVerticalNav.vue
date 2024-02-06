@@ -71,14 +71,7 @@ const upgradeBanner = computed(() => {
     <template #vertical-nav-content>
       <VerticalNavLink
         :item="{
-          title: 'Dashboard',
-          icon: 'bx-home',
-          to: '/dashboard',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Account Settings',
+          title: 'Application Settings',
           icon: 'mdi-account-cog-outline',
           to: '/account-settings',
         }"
@@ -87,99 +80,46 @@ const upgradeBanner = computed(() => {
       <!-- 👉 Pages -->
       <VerticalNavSectionTitle
         :item="{
-          heading: 'Pages',
+          heading: 'Memory Times',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Login',
-          icon: 'bx-log-in',
-          to: '/login',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Register',
-          icon: 'bx-user-plus',
-          to: '/register',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Error',
-          icon: 'bx-info-circle',
-          to: '/no-existence',
-        }"
-      />
-
-      <!-- 👉 User Interface -->
-      <VerticalNavSectionTitle
-        :item="{
-          heading: 'User Interface',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Typography',
+          title: 'Time - T0',
           icon: 'mdi-alpha-t-box-outline',
-          to: '/typography',
+          to: '/timeword-t0',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Icons',
+          title: 'Time - T1',
           icon: 'bx-show',
-          to: '/icons',
+          to: '/timeword-t1',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Cards',
+          title: 'Time - T2',
           icon: 'bx-credit-card',
-          to: '/cards',
+          to: '/timeword-t2',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Tables',
+          title: 'Time - T3',
           icon: 'bx-table',
-          to: '/tables',
+          to: '/timeword-t3',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Form Layouts',
+          title: 'Time - Cross days',
           icon: 'mdi-form-select',
-          to: '/form-layouts',
+          to: '/timeword-crossDays',
         }"
       />
     </template>
-
-    <template #after-vertical-nav-items>
-      <!-- 👉 illustration -->
-      <a
-        href="https://themeselection.com/item/sneat-vuetify-vuejs-admin-template"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="margin-left: 7px;"
-      >
-        <img
-          :src="upgradeBanner"
-          alt="upgrade-banner"
-          transition="scale-transition"
-          class="upgrade-banner mx-auto"
-          style="max-width: 230px;"
-        >
-      </a>
-    </template>
-
-    <!-- 👉 Pages -->
     <slot />
-
-    <!-- 👉 Footer -->
-    <template #footer>
-      <Footer />
-    </template>
   </VerticalNavLayout>
 </template>
 
