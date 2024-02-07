@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import * as memorizendClient from "@/clients/memorizend-client"
 
-const apiCaller = (caller, succeedHandler, failedHandler) => {
+const apiCaller = (caller, succeedHandler=null, failedHandler=null) => {
   caller()
     .then(response => {
       if (succeedHandler) { succeedHandler(response) }
@@ -15,24 +15,24 @@ const apiCaller = (caller, succeedHandler, failedHandler) => {
 export const useMemorizendStore = defineStore('memorizend', {
   state: () => ({
     wordsT0: [],
-    wordsT0Completed: null,
-
     wordsT1: [],
-    wordsT1Completed: null,
-
     wordsT2: [],
-    wordsT2Completed: null,
-
     wordsT3: [],
-    wordsT3Completed: null,
-
     wordsCrossDays: [],
-    wordsCrossDaysCompleted: null,
+    completeButtonEnabled: null,
   }),
 
   getters: {},
 
   actions: {
+
+    enableCompleteButton() {
+      this.completeButtonEnabled = true;
+    },
+
+    disableCompleteButton() {
+      this.completeButtonEnabled = false;
+    },
 
     /**  retrieve methods **/
 
@@ -84,7 +84,7 @@ export const useMemorizendStore = defineStore('memorizend', {
 
     completeWordsT0(failedHandler=null) {
       const onSucceed = () => {
-        this.wordsT0Completed = true
+        this.disableCompleteButton()
       }
 
       const caller = async () => {
@@ -96,7 +96,7 @@ export const useMemorizendStore = defineStore('memorizend', {
 
     completeWordsT1(failedHandler=null) {
       const onSucceed = () => {
-        this.wordsT1Completed = true
+        this.disableCompleteButton()
       }
 
       const caller = async () => {
@@ -108,7 +108,7 @@ export const useMemorizendStore = defineStore('memorizend', {
 
     completeWordsT2(failedHandler=null) {
       const onSucceed = () => {
-        this.wordsT2Completed = true
+        this.disableCompleteButton()
       }
 
       const caller = async () => {
@@ -120,7 +120,7 @@ export const useMemorizendStore = defineStore('memorizend', {
 
     completeWordsT3(failedHandler=null) {
       const onSucceed = () => {
-        this.wordsT3Completed = true
+        this.disableCompleteButton()
       }
 
       const caller = async () => {
@@ -132,7 +132,7 @@ export const useMemorizendStore = defineStore('memorizend', {
 
     completeWordsCrossDays(failedHandler=null) {
       const onSucceed = () => {
-        this.wordsCrossDaysCompleted = true
+        this.disableCompleteButton()
       }
 
       const caller = async () => {

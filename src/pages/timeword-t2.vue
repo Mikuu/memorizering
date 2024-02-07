@@ -8,13 +8,17 @@ import { useMemorizendStore } from "@/stores/memorizend"
 const memorizendStore = useMemorizendStore()
 
 onMounted(() => {
+  memorizendStore.enableCompleteButton()
   memorizendStore.retrieveWordsT2()
 })
 </script>
 
 <template>
   <div>
-    <TimewordBanner :word-time="wordTime.T2" />
+    <TimewordBanner
+      :words="memorizendStore.wordsT2"
+      :word-time="wordTime.T2"
+    />
     <CardWord
       :words="memorizendStore.wordsT2"
       :word-time="wordTime.T2"

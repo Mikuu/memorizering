@@ -8,13 +8,17 @@ import { useMemorizendStore } from "@/stores/memorizend"
 const memorizendStore = useMemorizendStore()
 
 onMounted(() => {
+  memorizendStore.enableCompleteButton()
   memorizendStore.retrieveWordsCrossDays()
 })
 </script>
 
 <template>
   <div>
-    <TimewordBanner :word-time="wordTime.CrossDays" />
+    <TimewordBanner
+      :words="memorizendStore.wordsCrossDays"
+      :word-time="wordTime.CrossDays"
+    />
     <CardWord
       :words="memorizendStore.wordsCrossDays"
       :word-time="wordTime.CrossDays"

@@ -7,7 +7,6 @@ import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
 
 // Components
-import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
 
@@ -85,28 +84,28 @@ const upgradeBanner = computed(() => {
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T0',
+          title: 'Time - T0 + 0',
           icon: 'mdi-alpha-t-box-outline',
           to: '/timeword-t0',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T1',
+          title: 'Time - T1 + 5 minutes',
           icon: 'bx-show',
           to: '/timeword-t1',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T2',
+          title: 'Time - T2 + 30 minutes',
           icon: 'bx-credit-card',
           to: '/timeword-t2',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T3',
+          title: 'Time - T3 + 12 hours',
           icon: 'bx-table',
           to: '/timeword-t3',
         }"

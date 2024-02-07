@@ -1,4 +1,5 @@
 export default {
+  // HOST: "http://10.206.20.30:3401",
   HOST: "http://localhost:3401",
   BATH_PATH: "",
   PATH_CONFIG_INIT: "/config/init",
