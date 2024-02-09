@@ -1,1 +1,1 @@
-docker build -t dashboarding:0.0.1 .
+docker build -t memorizering:0.0.1 .

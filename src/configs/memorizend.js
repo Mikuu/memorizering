@@ -1,6 +1,8 @@
+// ToDo: this config not work, it's running on FE, no env there...
+const host = process.env.MMR_ENV === 'docker' ? `${process.env.MEMORIZEND_HOST}:${process.env.MEMORIZEND_PORT}` : 'localhost:3401'
+console.log(host)
 export default {
-  // HOST: "http://10.206.20.30:3401",
-  HOST: "http://localhost:3401",
+  HOST: "http://" + host,
   BATH_PATH: "",
   PATH_CONFIG_INIT: "/config/init",
   PATH_TIMEWORDS_T0: "/timewords/t0",

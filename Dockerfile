@@ -8,5 +8,5 @@ FROM node:21-alpine
 WORKDIR /root/
 COPY --from=build /app/dist ./dist
 RUN npm install -g serve
-EXPOSE 8331
-CMD ["serve", "-s", "dist", "-l", "8331"]
+EXPOSE 3400
+CMD ["serve", "-s", "dist", "-l", "3400"]
