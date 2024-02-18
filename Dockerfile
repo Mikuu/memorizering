@@ -1,6 +1,7 @@
 FROM node:21-alpine as build
 WORKDIR /app
 COPY . .
+COPY ./src/configs/memorizend.docker.js ./src/configs/memorizend.js
 RUN npm install
 RUN npm run build
 
