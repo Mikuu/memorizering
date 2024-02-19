@@ -14,6 +14,14 @@ const apiCaller = (caller, succeedHandler=null, failedHandler=null) => {
 
 export const useMemorizendStore = defineStore('memorizend', {
   state: () => ({
+    config: {
+      wordsPerDay: null,  // by days
+      t0shiftTime: null,  // by minutes
+      t1shiftTime: null,  // by minutes
+      t2shiftTime: null,  // by minutes
+      t3shiftTime: null,  // by hours
+      t4shiftTime: null,  // by days as string array, e.g. "1,2,4,7,15"
+    },
     wordsT0: [],
     wordsT1: [],
     wordsT2: [],
@@ -140,6 +148,40 @@ export const useMemorizendStore = defineStore('memorizend', {
       }
 
       apiCaller(caller, onSucceed, failedHandler)
+    },
+
+    initConfig(succeedHandler=null, failedHandler=null) {
+      apiCaller(memorizendClient.initialize, succeedHandler, failedHandler)
+    },
+
+    retrieveConfig(succeedHandler=null, failedHandler=null) {
+      const onSucceed = response => {
+        this.config.wordsPerDay = response.config.wordsPerDay
+        this.config.t0shiftTime = response.config.t0shiftTime
+        this.config.t1shiftTime = response.config.t1shiftTime
+        this.config.t2shiftTime = response.config.t2shiftTime
+        this.config.t3shiftTime = response.config.t3shiftTime / 60
+        this.config.t4shiftTime = response.config.t4shiftTime.join(",")
+
+        if (succeedHandler) { succeedHandler() }
+      }
+
+      apiCaller(memorizendClient.getConfig, onSucceed, failedHandler)
+    },
+
+    updateConfig(succeedHandler=null, failedHandler=null) {
+      const caller = async () => {
+        await memorizendClient.updateConfig({
+          wordsPerDay: this.config.wordsPerDay,
+          t0shiftTime: this.config.t0shiftTime,
+          t1shiftTime: this.config.t1shiftTime,
+          t2shiftTime: this.config.t2shiftTime,
+          t3shiftTime: this.config.t3shiftTime * 60,
+          t4shiftTime: this.config.t4shiftTime.split(","),
+        })
+      }
+
+      apiCaller(caller, succeedHandler, failedHandler)
     },
 
   },

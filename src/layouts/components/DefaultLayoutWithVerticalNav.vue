@@ -10,6 +10,10 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
 
+import { useMemorizendStore } from "@/stores/memorizend"
+
+const memorizendStore = useMemorizendStore()
+
 const vuetifyTheme = useTheme()
 
 const upgradeBanner = computed(() => {
@@ -70,7 +74,15 @@ const upgradeBanner = computed(() => {
     <template #vertical-nav-content>
       <VerticalNavLink
         :item="{
-          title: 'Application Settings',
+          title: 'Dashboard',
+          icon: 'mdi-view-dashboard',
+          to: '/dashboard',
+        }"
+      />
+
+      <VerticalNavLink
+        :item="{
+          title: 'Settings',
           icon: 'mdi-account-cog-outline',
           to: '/account-settings',
         }"
@@ -84,36 +96,36 @@ const upgradeBanner = computed(() => {
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T0 + 0',
-          icon: 'mdi-alpha-t-box-outline',
+          title: `Time - T0 + ${memorizendStore.config.t0shiftTime}`,
+          icon: 'mdi-clock-time-eight-outline',
           to: '/timeword-t0',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T1 + 5 minutes',
-          icon: 'bx-show',
+          title: `Time - T1 + ${memorizendStore.config.t1shiftTime} minutes`,
+          icon: 'mdi-clock-time-nine-outline',
           to: '/timeword-t1',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T2 + 30 minutes',
-          icon: 'bx-credit-card',
+          title: `Time - T2 + ${memorizendStore.config.t2shiftTime} minutes`,
+          icon: 'mdi-clock-time-one-outline',
           to: '/timeword-t2',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Time - T3 + 12 hours',
-          icon: 'bx-table',
+          title: `Time - T3 + ${memorizendStore.config.t3shiftTime} hours`,
+          icon: 'mdi-clock-time-five-outline',
           to: '/timeword-t3',
         }"
       />
       <VerticalNavLink
         :item="{
           title: 'Time - Cross days',
-          icon: 'mdi-form-select',
+          icon: 'mdi-home-clock-outline',
           to: '/timeword-crossDays',
         }"
       />

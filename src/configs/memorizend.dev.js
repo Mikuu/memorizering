@@ -1,6 +1,7 @@
 export default {
   HOST: "http://localhost:3401",
   BATH_PATH: "",
+  PATH_CONFIG: "/config",
   PATH_CONFIG_INIT: "/config/init",
   PATH_TIMEWORDS_T0: "/timewords/t0",
   PATH_TIMEWORDS_T1: "/timewords/t1",

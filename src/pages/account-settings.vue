@@ -1,8 +1,10 @@
 <script setup>
 import { useRoute } from 'vue-router'
-import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue'
-import AccountSettingsNotification from '@/views/pages/account-settings/AccountSettingsNotification.vue'
-import AccountSettingsSecurity from '@/views/pages/account-settings/AccountSettingsSecurity.vue'
+import AppSettingsGeneral from "@/views/pages/account-settings/AppSettingsGeneral.vue"
+
+// import AccountSettingsAccount from '@/views/pages/account-settings/AccountSettingsAccount.vue'
+// import AccountSettingsNotification from '@/views/pages/account-settings/AccountSettingsNotification.vue'
+// import AccountSettingsSecurity from '@/views/pages/account-settings/AccountSettingsSecurity.vue'
 
 const route = useRoute()
 const activeTab = ref(route.params.tab)
@@ -10,20 +12,26 @@ const activeTab = ref(route.params.tab)
 // tabs
 const tabs = [
   {
-    title: 'Account',
-    icon: 'bx-user',
-    tab: 'account',
+    title: 'General',
+    icon: 'mdi-table-cog',
+    tab: 'general',
   },
-  {
-    title: 'Security',
-    icon: 'bx-lock-open',
-    tab: 'security',
-  },
-  {
-    title: 'Notifications',
-    icon: 'bx-bell',
-    tab: 'notification',
-  },
+
+  // {
+  //   title: 'Account',
+  //   icon: 'bx-user',
+  //   tab: 'account',
+  // },
+  // {
+  //   title: 'Security',
+  //   icon: 'bx-lock-open',
+  //   tab: 'security',
+  // },
+  // {
+  //   title: 'Notifications',
+  //   icon: 'bx-bell',
+  //   tab: 'notification',
+  // },
 ]
 </script>
 
@@ -52,20 +60,25 @@ const tabs = [
       v-model="activeTab"
       class="mt-5 disable-tab-transition"
     >
-      <!-- Account -->
-      <VWindowItem value="account">
-        <AccountSettingsAccount />
+      <!-- General -->
+      <VWindowItem value="general">
+        <AppSettingsGeneral />
       </VWindowItem>
+
+      <!-- Account -->
+      <!--      <VWindowItem value="account"> -->
+      <!--        <AccountSettingsAccount /> -->
+      <!--      </VWindowItem> -->
 
       <!-- Security -->
-      <VWindowItem value="security">
-        <AccountSettingsSecurity />
-      </VWindowItem>
+      <!--      <VWindowItem value="security"> -->
+      <!--        <AccountSettingsSecurity /> -->
+      <!--      </VWindowItem> -->
 
       <!-- Notification -->
-      <VWindowItem value="notification">
-        <AccountSettingsNotification />
-      </VWindowItem>
+      <!--      <VWindowItem value="notification"> -->
+      <!--        <AccountSettingsNotification /> -->
+      <!--      </VWindowItem> -->
     </VWindow>
   </div>
 </template>
