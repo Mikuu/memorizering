@@ -1,5 +1,5 @@
 export default {
-  HOST: "http://192.168.2.103:3401",
+  HOST: "http://119.3.156.32:3401",
   BATH_PATH: "",
   PATH_CONFIG_INIT: "/config/init",
   PATH_TIMEWORDS_T0: "/timewords/t0",
