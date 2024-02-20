@@ -150,10 +150,6 @@ export const useMemorizendStore = defineStore('memorizend', {
       apiCaller(caller, onSucceed, failedHandler)
     },
 
-    initConfig(succeedHandler=null, failedHandler=null) {
-      apiCaller(memorizendClient.initialize, succeedHandler, failedHandler)
-    },
-
     retrieveConfig(succeedHandler=null, failedHandler=null) {
       const onSucceed = response => {
         this.config.wordsPerDay = response.config.wordsPerDay

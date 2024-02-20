@@ -70,12 +70,6 @@ export const completeWordsCrossDays = async wids => {
   return await post(url, payload)
 }
 
-export const initialize = async () => {
-  const url = buildUrl(memorizendConfig.PATH_CONFIG_INIT)
-
-  return await post(url)
-}
-
 export const getConfig = async () => {
   const url = buildUrl(memorizendConfig.PATH_CONFIG)
 
