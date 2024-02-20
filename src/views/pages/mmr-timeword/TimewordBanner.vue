@@ -37,13 +37,25 @@ const isWordsNotEmptyAndCompleted = computed(() => {
 
   return Boolean(props.words.length && props.words[0][completedWordTime] !== null)
 })
+
+const greetingWords = computed(() => {
+  const greetings = {
+    [wordTime.T0]: 'New words for today',
+    [wordTime.T1]: "Review today's words",
+    [wordTime.T2]: "Review again",
+    [wordTime.T3]: "Review yesterday's words",
+    [wordTime.CrossDays]: "Review previous days' words",
+  }
+
+  return greetings[props.wordTime]
+})
 </script>
 
 <template>
   <div>
     <div class="d-flex justify-space-between">
       <p class="text-2xl mb-6">
-        Happy memorizing
+        {{ greetingWords }}
       </p>
       <VBtn
         v-if="isWordsNotEmpty"
