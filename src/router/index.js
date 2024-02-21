@@ -10,7 +10,7 @@ const router = createRouter({
       children: [
         {
           path: 'dashboard',
-          component: () => import('../pages/dashboard.vue'),
+          component: () => import('../pages/dashboarding.vue'),
         },
         {
           path: 'account-settings',
